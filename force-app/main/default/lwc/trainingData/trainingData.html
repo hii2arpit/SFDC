@@ -1,0 +1,41 @@
+<template>
+    <div class="slds-p-around_small">
+        <div class="slds-grid slds-wrap">
+            <table class="slds-table slds-table_cell-buffer slds-table_header-hidden slds-table_bordered">
+                <thead class="slds-assistive-text">
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                           <div class="slds-truncate" title="Course Name">Course Name</div>
+
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Course Details">Course Details</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="border">
+                    <template for:each={trainingList} for:item="training">                   
+                        <tr class="slds-hint-parent" key={training.Id}>
+                            <td data-label="Account Name" style="height:50%;">
+                                <lightning-formatted-rich-text value={training.Course_Image__c} style="height:50% Important; width:20%"></lightning-formatted-rich-text>
+                            </td>
+                            <td data-label="Training Name">
+                                <div class="slds-truncate" title={training.Course_Name__c}>
+                                    <span style="color:pink;weight:bold">Course Name: </span>{training.Course_Name__c}
+                                </div>
+                                <lightning-badge label={training.Course_Type__c}></lightning-badge>
+                                <lightning-badge label={training.Applicable_for__c}></lightning-badge>
+                                <lightning-badge label={training.Course_Source__c}></lightning-badge>
+                                <br/>
+                            </td>
+                            <td>
+                                <lightning-button variant="destructive" label="Start Learning" title="Start Learning" onclick={handleClick} data-name={training.Course_URL__c} 
+                                class="slds-m-left_x-small"></lightning-button>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>   
+        </div>
+    </div>
+</template>

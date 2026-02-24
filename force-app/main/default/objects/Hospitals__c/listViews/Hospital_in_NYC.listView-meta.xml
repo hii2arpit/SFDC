@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hospital_in_NYC</fullName>
+    <columns>NAME</columns>
+    <columns>Address__c</columns>
+    <columns>Email__c</columns>
+    <columns>Location__Latitude__s</columns>
+    <columns>Location__Longitude__s</columns>
+    <columns>Phone__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Location__c</field>
+        <operation>within</operation>
+        <value>40.73061:-73.935242:50:mi</value>
+    </filters>
+    <label>Hospital in NYC</label>
+</ListView>

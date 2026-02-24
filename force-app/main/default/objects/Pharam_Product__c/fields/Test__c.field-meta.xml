@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test__c</fullName>
+    <externalId>false</externalId>
+    <label>Test</label>
+    <summarizedField>PharamProductInvoice__c.CreatedDate</summarizedField>
+    <summaryForeignKey>PharamProductInvoice__c.PharamProduct__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

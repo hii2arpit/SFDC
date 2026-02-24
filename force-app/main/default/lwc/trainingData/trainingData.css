@@ -1,0 +1,5 @@
+.border{
+    outline: 5px solid black;
+    outline-offset: -1px;
+  
+}

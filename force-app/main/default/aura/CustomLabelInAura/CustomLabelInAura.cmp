@@ -1,0 +1,51 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-17-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global"
+                controller = "opportunityRecords">
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <aura:handler name="init" 
+              value="{!this}" 
+              action="{!c.doInit}"
+              description=""
+              />
+    <aura:attribute type="List" name="customLabelValue" />
+    <aura:attribute name="opportunityList" type="Opportunity[]" />
+    
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+			<thead>
+				<tr class="slds-line-height_reset">
+                    <aura:iteration items="{!v.customLabelValue}" var="item">
+                        <th class="slds-text-title_caps" scope="col">
+                          	<div class="slds-truncate">{!item}</div>
+                        </th>
+                    </aura:iteration>
+                </tr>
+        </thead>
+        <tbody>
+            <aura:if isTrue="{!not(empty(v.opportunityList))}">
+                 <aura:iteration  items="{!v.opportunityList}" var="opp">
+                    <tr class="slds-hint-parent">
+                      <td data-label="File Name">
+                           <div class="slds-truncate" title="File Name">{!opp.Name}</div>  
+                      </td>
+                      <td data-label="File Name">
+                           <div class="slds-truncate" title="File Name">{!opp.CloseDate}</div>  
+                      </td>
+                      <td data-label="File Name">
+                           <div class="slds-truncate" title="File Name">{!opp.StageName}</div>  
+                      </td>
+                   </tr>
+                </aura:iteration>
+                 <aura:set attribute="else">
+                  No Records
+                </aura:set>
+            </aura:if>
+		</tbody>
+    </table><br/><br/>
+    <lightning:button label="New" variant="brand" onclick="{!c.createOpportunity}" />
+</aura:component>

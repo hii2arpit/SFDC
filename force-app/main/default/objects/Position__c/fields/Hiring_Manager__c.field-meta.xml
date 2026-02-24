@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hiring_Manager__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Hiring Manager</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>This user is not allowed.</errorMessage>
+        <filterItems>
+            <field>User.Id</field>
+            <operation>equals</operation>
+            <valueField>$Source.OwnerId</valueField>
+        </filterItems>
+        <infoMessage>testing</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Positions</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

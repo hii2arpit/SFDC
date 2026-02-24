@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Formula_Inculeds__c</fullName>
+    <externalId>false</externalId>
+    <formula>INCLUDES(  Multiselect__c  , &quot;Tester&quot;)</formula>
+    <label>Formula Inculeds</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

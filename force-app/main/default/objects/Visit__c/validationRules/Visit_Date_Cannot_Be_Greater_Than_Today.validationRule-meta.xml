@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visit_Date_Cannot_Be_Greater_Than_Today</fullName>
+    <active>true</active>
+    <errorConditionFormula>VisitDate__c &gt; Today()</errorConditionFormula>
+    <errorDisplayField>VisitDate__c</errorDisplayField>
+    <errorMessage>The date cannot be greater than today&apos;s date.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PharmaInvoice__c</fullName>
+    <externalId>false</externalId>
+    <label>PharmaInvoice</label>
+    <referenceTo>PharmaInvoice__c</referenceTo>
+    <relationshipLabel>PharamProducts</relationshipLabel>
+    <relationshipName>PharamProductInvoices</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>
