@@ -8,6 +8,7 @@ public with sharing class AccountController {
       set<Id> accountIdSet = new set<Id>();
       Map<Id,Account> accountIDandAccountMap = new Map<Id,Account>();
       For(Account acc:newAccounts){
+        Account a = [Select ID,Name,AccountId from contact where accountID =: acc.Id];
         If(acc.Status__c != oldAccountMap.get(acc.Id).Status__c){
           accountIdSet.add(acc.Id);
           accountIDandAccountMap.put(acc.Id,acc);
