@@ -1,16 +1,5 @@
 # .github/workflows/pmd-analysis.yml
 name: PMD Check
-on: [pull_request]
-jobs:
- pmd:
- runs-on: ubuntu-latest
- steps:
- - uses: actions/checkout@v4
- - name: Placeholder Step
- run: echo "PMD check will go here"
-
-
- name: PMD Check
 on: 
   pull_request: 
     branches: [ Development ] # Only run for PRs targeting OrgSource
