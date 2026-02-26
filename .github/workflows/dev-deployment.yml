@@ -99,32 +99,41 @@ jobs:
         fi
 
     # Validate deployment (Check Only)
-    - name: Validate Deployment
-      id: validate_step # Assign an ID to this step to access its outputs
-      if: env.SKIP_DEPLOYMENT == 'false'
-      run: |
-        echo "Starting validation deployment..."
+#    - name: Validate Deployment
+#      id: validate_step # Assign an ID to this step to access its outputs
+#      if: env.SKIP_DEPLOYMENT == 'false'
+#      run: |
+#        echo "Starting validation deployment..."
         
         # Run validation with test execution
-        VALIDATION_RESULT=$(sf project deploy validate \
-          --manifest delta/package/package.xml \
-          --target-org target-org \
-          --test-level NoTestRun \ \
-          --wait 30 \
-          --json)
+#        VALIDATION_RESULT=$(sf project deploy validate \
+#          --manifest delta/package/package.xml \
+#          --target-org target-org \
+#          --test-level NoTestRun \
+#          --wait 30 \
+#          --json)
 
         # Extract the 'id' field from the JSON output & Store the ID as a step output
-        DEPLOY_ID=$(echo "$VALIDATION_RESULT" | jq -r '.result.id')
-        echo "validation_id=$DEPLOY_ID" >> $GITHUB_OUTPUT
-        echo "Validation ID: $DEPLOY_ID"
+#        DEPLOY_ID=$(echo "$VALIDATION_RESULT" | jq -r '.result.id')
+#        echo "validation_id=$DEPLOY_ID" >> $GITHUB_OUTPUT
+#        echo "Validation ID: $DEPLOY_ID"
       
     # Quick Deploy using Validation ID
+#    - name: Deploy to Target Org
+#      if: success() && steps.validate_step.outputs.validation_id
+#      run: |
+#        echo "Starting quick deployment using ID: ${{ steps.validate_step.outputs.validation_id }}"
+#        sf project deploy quick \
+#          --deploy-id ${{ steps.validate_step.outputs.validation_id }} \
+#          --target-org target-org \
+#          --wait 30 \
+#          --verbose
     - name: Deploy to Target Org
-      if: success() && steps.validate_step.outputs.validation_id
+      if: env.SKIP_DEPLOYMENT == 'false'
       run: |
-        echo "Starting quick deployment using ID: ${{ steps.validate_step.outputs.validation_id }}"
-        sf project deploy quick \
-          --deploy-id ${{ steps.validate_step.outputs.validation_id }} \
+        sf project deploy start \
+          --manifest delta/package/package.xml \
           --target-org target-org \
+          --test-level NoTestRun \
           --wait 30 \
           --verbose
