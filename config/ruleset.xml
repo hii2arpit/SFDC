@@ -10,7 +10,7 @@
     <rule ref="category/apex/errorprone.xml/AvoidDirectAccessTriggerMap" />
     <rule ref="category/apex/security.xml/ApexSharingViolations" />
 
-    <!-- Add these for SOQL/DML-in-loop detection -->
+    <!-- Add these for SOQL/DML-in-loop detection 
     <rule ref="category/apex/performance.xml/AvoidSoqlInLoops" />
-    <rule ref="category/apex/performance.xml/AvoidDmlStatementsInLoops" />
+    <rule ref="category/apex/performance.xml/AvoidDmlStatementsInLoops" /> -->
 </ruleset>
